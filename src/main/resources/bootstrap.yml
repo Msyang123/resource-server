@@ -1,0 +1,22 @@
+server:
+  port: 3011
+spring:
+  application:
+    name: resource-server
+  cloud:
+    config:
+      name: resource-server
+      profile: ${RUN_LEVEL:dev}
+      label: ${RUN_LEVEL:dev}
+      failFast: true
+      discovery:
+        enabled: true
+        service-id: microx-config
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    status-page-url-path: /swagger-ui.html
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_REPLICAS_LIST:http://172.16.10.203:1111/eureka}
