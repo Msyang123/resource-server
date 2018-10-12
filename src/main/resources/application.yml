@@ -3,3 +3,32 @@ info:
     version: @project.version@
     artifact: @project.artifactId@
     group: @project.groupId@
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: ${JDBC_URL:jdbc:mysql://127.0.0.1:3306/leon_test?useSSL=false}
+    username: ${JDBC_USERNAME:root}
+    password: ${JDBC_PASSWORD:root}
+    hikari:
+      connection-init-sql: set names utf8mb4;
+  jpa:
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+
+microx-common:
+  microx-support:
+    swagger:
+      title: 资源文件服务器
+      description: 资源文件服务器
+      version: ${info.build.version}
+lhiot:
+  resource-server:
+    file-upload:
+      base-url: http://resource.shuiguoshule.com.cn
+      root-dir: D:/home/resource/nginx-upload
+      recycle-dir: D:/home/resource/nginx-upload-recycle
+

@@ -3,9 +3,13 @@ server:
 spring:
   application:
     name: resource-server
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
   cloud:
     config:
-      name: resource-server
+      name: resource-server, application
       profile: ${RUN_LEVEL:dev}
       label: ${RUN_LEVEL:dev}
       failFast: true

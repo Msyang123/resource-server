@@ -31,8 +31,7 @@ public class QrCodeApi {
             @ApiImplicitParam(paramType = "query", name = "logo", value = "二维码中间logo 可以为空", dataType = "String"),
             @ApiImplicitParam(paramType = "query", name = "size", value = "尺寸大小(PX)", required = true, dataType = "int")
     })
-    public void createSeniorQrImg(@RequestParam String info, @RequestParam String logo, @RequestParam int size, @ApiIgnore HttpServletResponse response) {
-        log.debug("二维码生成\t param:{}", info);
+    public void createSeniorQrImg(@RequestParam String info, @RequestParam(required = false) String logo, @RequestParam int size, @ApiIgnore HttpServletResponse response) {
         response.setContentType("image/jpeg");
         response.setHeader("Pragma", "no-cache");
         response.setHeader("Cache-Control", "no-cache");
