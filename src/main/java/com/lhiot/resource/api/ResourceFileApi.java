@@ -22,19 +22,13 @@ import java.util.Objects;
  */
 @Slf4j
 @RestController
+@RequestMapping("/files")
 public class ResourceFileApi {
 
     private FileUploadRepository repository;
 
     public ResourceFileApi(FileUploadRepository repository) {
         this.repository = repository;
-    }
-
-    @ApiIgnore
-    @CrossOrigin
-    @RequestMapping({"", "/", "/index", "/default"})
-    public ResponseEntity index() {
-        return ResponseEntity.ok().build();
     }
 
     @CrossOrigin
@@ -52,11 +46,11 @@ public class ResourceFileApi {
 
     @CrossOrigin
     @Transactional
-    @GetMapping("/files")
+    @PostMapping("/search")
     @ApiOperation(value = "查询文件列表", response = ResourceFile.class, responseContainer = "Set",
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity files(@RequestBody(required = false) FileSearch search) {
-        List<ResourceFile> list = null;
+        List<ResourceFile> list;
         if (Objects.isNull(search)) {
             list = repository.findAll();
         } else {

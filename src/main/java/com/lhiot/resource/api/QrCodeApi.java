@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
@@ -22,9 +23,10 @@ import java.io.IOException;
 @Slf4j
 @RestController
 @Api(description = "二维码生成接口")
+@RequestMapping("/qr-code")
 public class QrCodeApi {
 
-    @GetMapping("/senior/qr-code")
+    @GetMapping("/")
     @ApiOperation(value = "二维码生成 - 好看的二维码")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "info", value = "二维码信息", required = true, dataType = "String"),

@@ -1,6 +1,7 @@
 package com.lhiot.resource.config;
 
 import lombok.Data;
+import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 
@@ -16,4 +17,12 @@ public class ResourceServerProperties {
     static final String PREFIX = "lhiot.resource-server";
 
     private FileUploadConfig fileUpload;
+
+    @Data
+    @ToString
+    public static class FileUploadConfig {
+        private String baseUrl;
+        private String rootDir;
+        private String recycleDir;
+    }
 }

@@ -1,7 +1,6 @@
 package com.lhiot.resource.api;
 
 import com.leon.microx.util.Converter;
-import com.lhiot.resource.config.FileUploadConfig;
 import com.lhiot.resource.config.ResourceServerProperties;
 import com.lhiot.resource.entity.ResourceFile;
 import com.lhiot.resource.model.Base64Img;
@@ -36,9 +35,10 @@ import java.util.Base64;
 @Slf4j
 @RestController
 @Api(description = "文件上传")
+@RequestMapping("/files")
 public class UploadApi {
 
-    private FileUploadConfig config;
+    private ResourceServerProperties.FileUploadConfig config;
 
     private FileUploadRepository repository;
 
@@ -52,7 +52,7 @@ public class UploadApi {
 
     @CrossOrigin
     @Transactional
-    @PostMapping("/upload/{groupType}")
+    @PostMapping("/{groupType}")
     @ApiOperation(value = "文件上传", notes = "上传图片，视频等文件", response = ResourceFile.class,
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity upload(
@@ -72,7 +72,7 @@ public class UploadApi {
     }
 
     @CrossOrigin
-    @PostMapping("/base64/upload")
+    @PostMapping("/base64")
     @ApiOperation(value = "base64上传（图片）", notes = "base64上传文件（图片）", response = ResourceFile.class,
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity base64(@RequestBody Base64Img img) throws IOException {

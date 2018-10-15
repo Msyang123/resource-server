@@ -1,9 +1,7 @@
 package com.lhiot.resource;
 
-import com.lhiot.resource.config.ResourceServerProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -17,7 +15,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableTransactionManagement
-@EnableConfigurationProperties(ResourceServerProperties.class)
 public class ResourceFileServer {
 
     public static void main(String[] args) {

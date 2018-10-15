@@ -3,7 +3,7 @@ package com.lhiot.resource.entity;
 import com.leon.microx.util.Converter;
 import com.leon.microx.util.StringUtils;
 import com.leon.microx.util.auditing.Random;
-import com.lhiot.resource.config.FileUploadConfig;
+import com.lhiot.resource.config.ResourceServerProperties;
 import com.lhiot.resource.model.Base64Img;
 import com.lhiot.resource.model.GroupType;
 import lombok.Data;
@@ -11,12 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Version;
-import javax.persistence.Transient;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -67,7 +62,7 @@ public class ResourceFile implements Serializable {
         return Paths.get(StringUtils.format("{}/{}/{}", this.root, this.subdirectory, this.newName));
     }
 
-    public static ResourceFile of(FileUploadConfig config, Base64Img img){
+    public static ResourceFile of(ResourceServerProperties.FileUploadConfig config, Base64Img img){
         LocalDateTime now = LocalDateTime.now();
         ResourceFile sf = new ResourceFile();
         sf.setFileGroup(FileGroup.BASE64_IMAGE);
@@ -81,7 +76,7 @@ public class ResourceFile implements Serializable {
         return sf;
     }
 
-    public static  ResourceFile of(FileUploadConfig config, GroupType groupType, String attach, MultipartFile file) {
+    public static  ResourceFile of(ResourceServerProperties.FileUploadConfig config, GroupType groupType, String attach, MultipartFile file) {
         LocalDateTime now = LocalDateTime.now();
         ResourceFile sf = new ResourceFile();
         sf.setFileGroup(groupType.toFileGroup());

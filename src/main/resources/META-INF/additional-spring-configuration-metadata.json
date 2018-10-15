@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "lhiot.resource-server.file-upload",
+      "type": "com.lhiot.resource.config.ResourceServerProperties$FileUploadConfig",
+      "sourceType": "com.lhiot.resource.config.ResourceServerProperties$FileUploadConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "lhiot.resource-server.file-upload.base-url",
+      "type": "java.lang.String",
+      "description": "上传后访问的域名基础URL."
+    },
+    {
+      "name": "lhiot.resource-server.file-upload.root-dir",
+      "type": "java.lang.String",
+      "description": "上传文件的根目录."
+    },
+    {
+      "name": "lhiot.resource-server.file-upload.recycle-dir",
+      "type": "java.lang.String",
+      "description": "回收站URL."
+    }
+  ]
+}
+
