@@ -8,7 +8,7 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: ${JDBC_URL:jdbc:mysql://127.0.0.1:3306/leon_test?useSSL=false}
+    url: ${JDBC_URL:jdbc:mysql://172.16.10.196:3306/leon_test?useSSL=false}
     username: ${JDBC_USERNAME:root}
     password: ${JDBC_PASSWORD:root}
     hikari:
