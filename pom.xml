@@ -49,8 +49,8 @@
         </dependency>
         <!-- microx-utils -->
         <dependency>
-            <groupId>com.leon.microx.util</groupId>
-            <artifactId>microx-utils</artifactId>
+            <groupId>com.leon.microx.core</groupId>
+            <artifactId>microx-core</artifactId>
         </dependency>
         <!-- microx-restful (web / swagger / openfeign) -->
         <dependency>

@@ -1,6 +1,6 @@
 package com.lhiot.resource.api;
 
-import com.leon.microx.support.result.Multiple;
+import com.leon.microx.web.result.Multiple;
 import com.lhiot.resource.entity.ResourceFile;
 import com.lhiot.resource.model.FileSearch;
 import com.lhiot.resource.repository.FileUploadRepository;
@@ -10,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
 
 import java.io.IOException;
 import java.nio.file.Files;
