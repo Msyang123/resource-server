@@ -29,6 +29,6 @@ lhiot:
   resource-server:
     file-upload:
       base-url: http://resource.shuiguoshule.com.cn
-      root-dir: D:/home/resource/nginx-upload
-      recycle-dir: D:/home/resource/nginx-upload-recycle
+      root-dir: /home/resource/nginx-upload
+      recycle-dir: /home/resource/nginx-upload-recycle
 
